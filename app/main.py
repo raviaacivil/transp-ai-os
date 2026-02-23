@@ -3,7 +3,7 @@
 from fastapi import FastAPI
 
 from app import __version__
-from app.api import health, hcm
+from app.api import health, hcm, compute
 
 app = FastAPI(
     title="Transportation AI OS",
@@ -13,3 +13,4 @@ app = FastAPI(
 
 app.include_router(health.router, tags=["health"])
 app.include_router(hcm.router, prefix="/hcm", tags=["hcm"])
+app.include_router(compute.router, prefix="/compute", tags=["compute"])
